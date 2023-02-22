@@ -55,3 +55,25 @@ vector<MoveSeg> Reader::ReadMoveSeg(string path) {
     }
     return ret;
 }
+
+vector<FakeBase> Reader::ReadFakeBases(string path) {
+    FILE* f = fopen(path.c_str(), "r");
+    //除去第一行
+    while (true){
+        char c = fgetc(f);
+        if(c=='\n'){
+            break;
+        }
+    }
+    vector<FakeBase> ret;
+    while (true){
+        int sx = -1, sy, ex, ey, speed, sth, stm, num;
+        fscanf(f,"%d,%d,%d,%d,%d,%d,%d,%d",
+               &sx,&sy,&ex,&ey,&speed,&sth,&stm,&num);
+        if (sx == -1) break;
+        auto fb = FakeBase {sx, sy, ex, ey, speed, sth, stm, num};
+        ret.push_back(fb);
+    }
+    return ret;
+}
+

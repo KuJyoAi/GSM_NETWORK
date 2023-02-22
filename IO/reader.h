@@ -7,13 +7,15 @@
 
 #include "../core/base.h"
 #include "../core/move.h"
+#include "../core/FakeBase.h"
 #include "string"
 
 
 class Reader {
 public :
-    static vector<Base*> ReadBases(std::string path); //读取基站数据
-    static vector<MoveSeg> ReadMoveSeg(string path);
+    static vector<Base*> ReadBases(string path); //读取基站数据
+    static vector<MoveSeg> ReadMoveSeg(string path); //读取移动轨迹
+    static vector<FakeBase> ReadFakeBases(string path); //读取伪基站
 };
 
 

@@ -85,6 +85,12 @@ build CMakeFiles/GMS_NETWORK.dir/core/move.cpp.obj: CXX_COMPILER__GMS_NETWORK_De
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\core
 
+build CMakeFiles/GMS_NETWORK.dir/core/FakeBase.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/core/FakeBase.cpp || cmake_object_order_depends_target_GMS_NETWORK
+  DEP_FILE = CMakeFiles\GMS_NETWORK.dir\core\FakeBase.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
+  OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\core
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target GMS_NETWORK
@@ -93,7 +99,7 @@ build CMakeFiles/GMS_NETWORK.dir/core/move.cpp.obj: CXX_COMPILER__GMS_NETWORK_De
 #############################################
 # Link the executable GMS_NETWORK.exe
 
-build GMS_NETWORK.exe: CXX_EXECUTABLE_LINKER__GMS_NETWORK_Debug CMakeFiles/GMS_NETWORK.dir/main.cpp.obj CMakeFiles/GMS_NETWORK.dir/IO/reader.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/base.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/BaseBlock.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/task.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/move.cpp.obj
+build GMS_NETWORK.exe: CXX_EXECUTABLE_LINKER__GMS_NETWORK_Debug CMakeFiles/GMS_NETWORK.dir/main.cpp.obj CMakeFiles/GMS_NETWORK.dir/IO/reader.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/base.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/BaseBlock.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/task.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/move.cpp.obj CMakeFiles/GMS_NETWORK.dir/core/FakeBase.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
