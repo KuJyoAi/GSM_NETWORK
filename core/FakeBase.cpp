@@ -1,6 +1,5 @@
 #include "FakeBase.h"
 
-#include <utility>
 #include "math.h"
 FakeBaseManager::FakeBaseManager(vector<FakeBase> fakes, vector<MoveSeg> seg) {
     this->fakes = fakes;
@@ -19,8 +18,8 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
         // 此处设定终端的移动距离为1, 伪基站按速度配比
         state.fx.push_back(f.sx);
         state.fy.push_back(f.sy);
-        state.fdx.push_back(dx / dr * INCDis * (f.speed/speed));
-        state.fdy.push_back(dy / dr * INCDis * (f.speed/speed));
+        state.fdx.push_back(dx / dr * INCDis * (f.speed*1.0/speed));
+        state.fdy.push_back(dy / dr * INCDis * (f.speed*1.0/speed));
     }
     //初始化终端的位置和增量
     const auto &t = moves[seg];
@@ -32,13 +31,10 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
     state.dx = dx / dr * INCDis;
     state.dy = dy / dr * INCDis;
     //根据当前时间修正基站位置和速度(未启动的)
-    auto FakeBaseCheckpoint = FakeBaseTimeOffset(state,t.sth, t.stm);
+    FakeBaseTimeOffset(state,t.sth, t.stm);
     //设定总周期数, 并计算伪基站的启动检查点
     state.cur_t = 0;
     unsigned long long total_t = dr / INCDis;
-    double secs = (FakeBaseCheckpoint[0]-t.sth)*3600+(FakeBaseCheckpoint[1]-t.stm)*60;
-    unsigned long long FBCheck = (secs*t.speed/3.6)/INCDis;
-    int NextFakeBaseStart = FakeBaseCheckpoint[2];
     //开始计算
     bool Connect = false; //是否连上伪基站信号量
     vector<State> standpoint; //记录出入的时间点, 后面二分计算边界
@@ -50,25 +46,6 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
     while (state.cur_t<=total_t){
         //前进一步
         MoveOneStep(state);
-        if (state.cur_t >= FBCheck){
-            // 下一个基站启动
-            const auto &f = fakes[NextFakeBaseStart];
-            const auto &speed = moves[seg].speed;
-            long double dx = f.ex - f.sx;
-            long double dy = f.ey - f.sy;
-            long double dr = sqrt(dx*dx+dy*dy);
-            state.fdx[NextFakeBaseStart] = dx / dr * INCDis * (f.speed/speed);
-            state.fdy[NextFakeBaseStart] = dy / dr * INCDis * (f.speed/speed);
-            NextFakeBaseStart++;
-            // 更新下一个基站的时间
-            if (NextFakeBaseStart >= fakes.size()){
-                FBCheck = 12345678910; //不用更新了
-            } else{
-                double secs = (fakes[NextFakeBaseStart].sth-t.sth)*3600+
-                        (fakes[NextFakeBaseStart].stm-t.stm)*60;
-                unsigned long long FBCheck = (secs*t.speed/3.6)/INCDis;
-            }
-        }
         //计算连接情况
         auto fbs = ConnectFakeBases(state);
         if (Connect && !fbs){
@@ -82,7 +59,7 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
         }
     }
     //计算并打印驻点
-    BinarySearch(standpoint,0.1);
+    BinarySearch(standpoint, BinaryE);
     for(int i=0;i<standpoint.size();i++){
         auto s = standpoint[i];
         if (s.num != -1){
@@ -95,13 +72,23 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
                 //不是第一个驻点
                 auto enter = standpoint[i-1];
                 auto leave = standpoint[i];
+                long double dx1 = enter.x - fakes[enter.num].sx;
+                long double dy1 = enter.y - fakes[enter.num].sy;
+                long double dx2 = leave.x - fakes[enter.num].sx;
+                long double dy2 = leave.y - fakes[enter.num].sy;
+                long double dr1 = sqrt(dx1*dx1+dy1*dy1);
+                long double dr2 = sqrt(dx2*dx2+dy2*dy2);
                 dx = leave.x - enter.x;
                 dy = leave.y - enter.y;
                 dr = sqrt(dx*dx+dy*dy);
                 long double dt = dr/(t.speed/3.6);
-                printf("Leave FakeBase %d(%Lf,%Lf): (%Lf,%Lf) period=%Lfs\n",
+                long double dt1 = dr1/(t.speed/3.6);
+                long double dt2 = dr2/(t.speed/3.6);
+                printf("Leave FakeBase %d(%Lf,%Lf): (%Lf,%Lf) period=%Lfs\n"
+                       "t1=%Lfs \t t2=%Lfs\n",
                        enter.num,leave.fx[enter.num], leave.fy[enter.num],
-                       leave.x, leave.y, dt);
+                       leave.x, leave.y, dt,
+                       dt1, dt2);
             }else{
                 //是第一个驻点
                 printf("Start Moving, No FakeBase!\n");
@@ -225,7 +212,7 @@ void FakeBaseManager::FakeBaseTimeOffset(State &s, int h, int m) {
         int fm = fakes[i].stm;
         if (h+m/60 >= fh+fm/60){
             // 已经启动的基站, 位置偏移
-            long double dr = (h-fh)*fakes[i].speed + (m-fm)*fakes[i].speed/60;//总位移
+            long double dr = ((h-fh)*fakes[i].speed + (m-fm)*fakes[i].speed/60)*1000;//总位移
             long double r = sqrt(s.fdx[i]*s.fdx[i]+s.fdy[i]*s.fdy[i]);
             long double dx = (s.fdx[i]/r)*dr;//计算分量
             long double dy = (s.fdy[i]/r)*dr;

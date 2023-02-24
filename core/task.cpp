@@ -22,7 +22,7 @@ void Task::PrintBases(vector<Base *> b) {
     }
 }
 void Task::ShowFirstBlock(BaseBlock *data){
-    cout<<"ShowFirstBlock:"<<endl;
+    printf("FirstBlock(%f,%f)\n",data->start.first,data->start.second);
     //cout<<"显示第一个分块数据:"<<endl;
     //cout<<"数据格式:编号:x,y 类型 基准强度"<<endl;
     auto block1 = data->blocks[0];
@@ -34,17 +34,32 @@ void Task::ShowFirstBlock(BaseBlock *data){
 }
 
 void Task::ShowLastBlock(BaseBlock *data) {
-    cout<<"ShowLastBlock:"<<endl;
+    double x = data->start.first + data->width * data->size;
+    double y = data->start.second + data->height * data->size;
+    printf("ShowLastBlock(%f,%f)\n",x,y);
     auto block1 = data->blocks[data->blocks.size()-1];
     if (block1.empty()){
-        cout<<"Empty"<<endl;
+        cout<<"Empty!\n"<<endl;
         return;
     }
     PrintBases(block1);
 }
 
-void Task::ShowLastBlockNear(BaseBlock *data){
-
+void Task::ShowBlockNear(BaseBlock *data, double x, double y, int pos){
+    int width = data->width;
+    int height = data->height;
+    const auto blocks = data->blocks;
+    //分别求得周围的基站
+    int p = data->Find(x,y);
+    int y_way = p / width;
+    int x_way = p % width;
+    int bias[9][2] = {{-1,-1},{0,-1},{1,-1},
+                      {-1,0},{0,0},{1,0},
+                      {-1,1},{0,1},{1,1}};
+    vector<Base*> ret;
+    // 把周围的基站加入ret中
+    ret.insert(ret.end(),blocks[pos].begin(),blocks[pos].end());
+    PrintBases(ret);
 }
 vector<Base *> Task::SelectBases(BaseBlock *data, double x, double y) {
     vector<Base*> bases = data->GetBases(x,y);
@@ -86,4 +101,46 @@ vector<Base *> Task::SelectBases(BaseBlock *data, double x, double y) {
         ret[2] = nullptr;
     }
     return ret;
+}
+void Task::ShowFirstBlockNear(BaseBlock *data){
+    //printf("FirstBlock(%f,%f)\n",data->start.first,data->start.second);
+    //cout<<"显示第一个分块数据:"<<endl;
+    //cout<<"数据格式:编号:x,y 类型 基准强度"<<endl;
+    cout<<"East:"<<endl;
+    auto block1 = data->blocks[1];
+    if (block1.empty()) {
+        cout << "Empty" << endl;
+    } else{
+        PrintBases(block1);
+    }
+
+
+    cout<<"South:"<<endl;
+    auto block2 = data->blocks[data->width];
+    if (block1.empty()){
+        cout<<"Empty!"<<endl;
+        return;
+    }
+    PrintBases(block2);
+}
+
+void Task::ShowLastBlockNear(BaseBlock *data) {
+    //cout<<"显示第一个分块数据:"<<endl;
+    //cout<<"数据格式:编号:x,y 类型 基准强度"<<endl;
+    cout<<"West:"<<endl;
+    auto block1 = data->blocks[data->blocks.size() - 3];
+    if (block1.empty()){
+        cout<<"Empty!"<<endl;
+    }else{
+        PrintBases(block1);
+    }
+
+
+    cout<<"North:"<<endl;
+    auto block2 = data->blocks[data->blocks.size() - 3 - 2*data->width];
+    if (block1.empty()){
+        cout<<"Empty!"<<endl;
+        return;
+    }
+    PrintBases(block2);
 }

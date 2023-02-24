@@ -41,7 +41,7 @@ void Move::GoDis(MoveSeg s, int step) {
         printf("t=%.2d:%.2d:%.2d (%.1lf,%.1lf) num=%d\n"
                 ,s.sth,s.stm,0,cur_x,cur_y,cur_base->num);
     }
-
+    int cnt = 0;
     while (cur_t <= total_t){
         cur_x += dx;
         cur_y += dy;
@@ -71,6 +71,7 @@ void Move::GoDis(MoveSeg s, int step) {
             } else{
                 printf("t=%.2d:%.2d:%.1lf (%4.2lf,%4.2lf) switch to %.4d \n",
                        hour, minute, seconds,cur_x,cur_y, base_t->num);
+                cnt++;
             }
 
             //切换基站
@@ -168,6 +169,7 @@ long double Move::FindCover(MoveSeg s, double e) {
         v = MoveData->GetEffBase(cur_x, cur_y);
         if (!Covered && v.size()>=2){
             //进入重叠区
+            //二分计算
             pair<long double, long double> pos = BinarySearchForCover(
                     pair<long double, long double>{cur_x-dx,cur_y-dy},
                     pair<long double, long double>{cur_x,cur_y},

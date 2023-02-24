@@ -3,35 +3,37 @@
 #include "iostream"
 
 using namespace std;
-vector<Base*> Reader::ReadBases(string path) {
-    FILE* f = fopen(path.c_str(), "r");
-    //除去第一行
-    while (true){
-        char c = fgetc(f);
-        if(c=='\n'){
-            break;
-        }
-    }
-    //读取基站数据
+vector<Base*> Reader::ReadBases(vector<string> path) {
     vector<Base*> ret;
-    while(true){
-        char buf[10]={0};
-        Base *b = new Base();
-        fscanf(f,"%d,%d,%s  %lf,%d",&b->x,&b->y, buf,&b->power,&b->num);
-        if (b->num==0){
-            break;
-        }
-        switch (buf[0]) {
-            case -77:
-                b->type = CITY;
+    for (auto p:path) {
+        FILE* f = fopen(p.c_str(), "r");
+        //除去第一行
+        while (true){
+            char c = fgetc(f);
+            if(c=='\n'){
                 break;
-            case -49:
-                b->type = TOWN;
-                break;
-            default:
-                b->type = ROAD;
+            }
         }
-        ret.push_back(b);
+        while(true){
+            char buf[10]={0};
+            Base *b = new Base();
+            fscanf(f,"%d,%d,%s  %lf,%d",&b->x,&b->y, buf,&b->power,&b->num);
+            if (b->num==0){
+                break;
+            }
+            switch (buf[0]) {
+                case -77:
+                    b->type = CITY;
+                    break;
+                case -49:
+                    b->type = TOWN;
+                    break;
+                default:
+                    b->type = ROAD;
+            }
+            ret.push_back(b);
+        }
+        //cout<<ret.size()<<endl;
     }
     return ret;
 }

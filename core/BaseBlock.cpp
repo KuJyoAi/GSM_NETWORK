@@ -3,6 +3,7 @@
 //
 
 #include "BaseBlock.h"
+#include "math.h"
 #define Edge 50
 #define BlockSize 1000 //块大小, 恰好为村镇块大小
 BaseBlock::BaseBlock(vector<Base *> data) {
@@ -63,8 +64,8 @@ int BaseBlock::Find(double x, double y) {
     return p;
 }
 void BaseBlock::PrintDist() {
-    for(int y=0;y<height * 0.5;y++){
-        for(int x=0;x<width * 0.5;x++){
+    for(int y=0;y<height;y++){
+        for(int x=0;x<width;x++){
             int p = y*width+x;
             printf("%.1d ",blocks[p].size());
         }
@@ -78,6 +79,7 @@ vector<Base *> BaseBlock::GetBases(double x, double y) {
         // 还在上一次的块中, 缓存命中
         return buffer;
     }
+
     //分别求得周围的基站
     int p = Find(x,y);
     int y_way = p / width;
@@ -86,6 +88,7 @@ vector<Base *> BaseBlock::GetBases(double x, double y) {
                     {-1,0},{0,0},{1,0},
                     {-1,1},{0,1},{1,1}};
     vector<Base*> ret;
+
     // 把周围的基站加入ret中
     for (int i = 0; i < 9; ++i) {
         int x_t = x_way + bias[i][0];
