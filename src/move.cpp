@@ -215,19 +215,19 @@ void Move::FindFirstEdge(double e, int seg_num) {
     long double t_double = delta_r / (s.speed/3.6);
     // 计算时间
     unsigned long t = t_double;
-    int hour = s.sth + t / 3600;
-    int minute = s.stm + (t%3600)/60;
-    if (minute>60){
+    int hour1 = s.sth + t / 3600;
+    int minute1 = s.stm + (t%3600)/60;
+    if (minute1>60){
         // 对分钟进行修正
-        hour++;
-        minute = minute%60;
+        hour1++;
+        minute1 = minute1%60;
     }
-    double seconds = t%60 + (t_double-t);
-    printf("Switch to base %d: "
-           "t=%.2d:%.2d:%lf \t"
+    long double second1 = t%60 + (t_double-t);
+    printf("Switch to base %d:\t"
+           "t=%.2d:%.2d:%Lf \t"
            "position:(%Lf,%Lf)\n",
            b->num,
-           hour,minute,seconds,
+           hour1,minute1,second1,
            mid_x,mid_y);
     // 第三步: 运行到离开的临界区
     dx = INCDis*(s.ex-s.sx)/r;
@@ -267,20 +267,22 @@ void Move::FindFirstEdge(double e, int seg_num) {
     t_double = delta_r / (s.speed/3.6);
     // 计算时间
     t = t_double;
-    hour = s.sth + t / 3600;
-    minute = s.stm + (t%3600)/60;
-    if (minute>60){
+    int hour2 = s.sth + t / 3600;
+    int minute2 = s.stm + (t%3600)/60;
+    if (minute2>60){
         // 对分钟进行修正
-        hour++;
-        minute = minute%60;
+        hour2++;
+        minute2 = minute2%60;
     }
-    seconds = t%60 + (t_double-t);
-    printf("Leave base %d: "
-           "t=%.2d:%.2d:%lf \t"
-           "position:(%Lf,%Lf)",
+    long double second2 = t%60 + (t_double-t);
+    printf("Leave base %d:\t "
+           "t=%.2d:%.2d:%Lf \t"
+           "position:(%Lf,%Lf)\t"
+           "period: %Lfs",
            b->num,
-           hour,minute,seconds,
-           mid_x,mid_y);
+           hour2,minute2,second2,
+           mid_x,mid_y,
+           hour2*3600+minute2*60+second2-hour1*3600-minute1*60-second1);
 }
 
 pair<long double, long double>
@@ -346,10 +348,19 @@ void Move::FindFirstCover(double e, int seg_num) {
     long double cur_x = s.sx, cur_y = s.sy;
     unsigned long long total_t = r/INCDis; //总距离周期
     unsigned long long cur_t = 0;//当前距离周期
-    // 标记是否在重叠区
-    bool Covered = false;
     auto v = MoveData->GetEffBase(cur_x, cur_y);
     auto start_base = v[0]; // 起始基站
+    // 标记是否在重叠区
+    bool Covered = false;
+    // 标记是否满足条件
+    bool Found = true;
+    if (v.size()>=2){
+        // 一开始就在重叠区, 因此不算入重叠区
+        Found = false;
+    }
+    /*
+     * 一开始在重叠区, 不算入重叠区
+     */
     vector<pair<long double, long double>> standpoint;
     while (cur_t <= total_t){
         cur_x += dx;
@@ -358,23 +369,27 @@ void Move::FindFirstCover(double e, int seg_num) {
         v = MoveData->GetEffBase(cur_x, cur_y);
         if (!Covered && v.size()>=2){
             // 进入重叠区
-            // 二分计算
-            pair<long double, long double> pos = BinarySearchForCover(
-                    pair<long double, long double>{cur_x-dx,cur_y-dy},
-                    pair<long double, long double>{cur_x,cur_y},
-                    e);
-            standpoint.push_back(pos);
+            if (Found){
+                // 二分计算
+                pair<long double, long double> pos = BinarySearchForCover(
+                        pair<long double, long double>{cur_x-dx,cur_y-dy},
+                        pair<long double, long double>{cur_x,cur_y},
+                        e);
+                standpoint.push_back(pos);
+            }
             Covered = true;
         } else if (Covered && v.size()<2){
-            // 记录基站
-            // 退出重叠区
-            pair<long double, long double> pos = BinarySearchForCover(
-                    pair<long double, long double>{cur_x-dx,cur_y-dy},
-                    pair<long double, long double>{cur_x,cur_y},
-                    e);
-            standpoint.push_back(pos);
-            // 退出重叠区
-            break;
+            if (Found){
+                pair<long double, long double> pos = BinarySearchForCover(
+                        pair<long double, long double>{cur_x-dx,cur_y-dy},
+                        pair<long double, long double>{cur_x,cur_y},
+                        e);
+                standpoint.push_back(pos);
+                break;
+            } else{
+                // 之前在重叠区, 但是不满足条件, 现在离开重叠区, 满足条件
+                Found = true;
+            }
         }
         cur_t++;
     }

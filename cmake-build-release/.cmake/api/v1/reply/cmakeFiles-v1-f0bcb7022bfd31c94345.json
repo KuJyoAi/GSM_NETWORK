@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeSystem.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.24.2/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -15,11 +15,11 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.24.2/CMakeCCompiler.cmake"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -83,7 +83,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.24.2/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -149,8 +149,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "E:/Code/CPP/GMS_NETWORK/cmake-build-debug",
-		"source" : "E:/Code/CPP/GMS_NETWORK"
+		"build" : "E:/Code/CPP/GSM_NETWORK/cmake-build-release",
+		"source" : "E:/Code/CPP/GSM_NETWORK"
 	},
 	"version" : 
 	{

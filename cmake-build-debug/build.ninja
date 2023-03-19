@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = E$:/Code/CPP/GMS_NETWORK/cmake-build-debug/
+cmake_ninja_workdir = E$:/Code/CPP/GSM_NETWORK/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target GMS_NETWORK
 
@@ -49,43 +49,43 @@ cmake_ninja_workdir = E$:/Code/CPP/GMS_NETWORK/cmake-build-debug/
 
 build cmake_object_order_depends_target_GMS_NETWORK: phony || CMakeFiles/GMS_NETWORK.dir
 
-build CMakeFiles/GMS_NETWORK.dir/main.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/main.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/main.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/main.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir
 
-build CMakeFiles/GMS_NETWORK.dir/src/reader.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/src/reader.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/src/reader.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/src/reader.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\src\reader.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\src
 
-build CMakeFiles/GMS_NETWORK.dir/src/base.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/src/base.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/src/base.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/src/base.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\src\base.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\src
 
-build CMakeFiles/GMS_NETWORK.dir/src/BaseBlock.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/src/BaseBlock.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/src/BaseBlock.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/src/BaseBlock.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\src\BaseBlock.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\src
 
-build CMakeFiles/GMS_NETWORK.dir/test/task.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/test/task.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/test/task.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/test/task.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\test\task.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\test
 
-build CMakeFiles/GMS_NETWORK.dir/src/move.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/src/move.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/src/move.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/src/move.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\src\move.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   OBJECT_FILE_DIR = CMakeFiles\GMS_NETWORK.dir\src
 
-build CMakeFiles/GMS_NETWORK.dir/src/FakeBase.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GMS_NETWORK/src/FakeBase.cpp || cmake_object_order_depends_target_GMS_NETWORK
+build CMakeFiles/GMS_NETWORK.dir/src/FakeBase.cpp.obj: CXX_COMPILER__GMS_NETWORK_Debug E$:/Code/CPP/GSM_NETWORK/src/FakeBase.cpp || cmake_object_order_depends_target_GMS_NETWORK
   DEP_FILE = CMakeFiles\GMS_NETWORK.dir\src\FakeBase.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
@@ -101,6 +101,7 @@ build CMakeFiles/GMS_NETWORK.dir/src/FakeBase.cpp.obj: CXX_COMPILER__GMS_NETWORK
 
 build GMS_NETWORK.exe: CXX_EXECUTABLE_LINKER__GMS_NETWORK_Debug CMakeFiles/GMS_NETWORK.dir/main.cpp.obj CMakeFiles/GMS_NETWORK.dir/src/reader.cpp.obj CMakeFiles/GMS_NETWORK.dir/src/base.cpp.obj CMakeFiles/GMS_NETWORK.dir/src/BaseBlock.cpp.obj CMakeFiles/GMS_NETWORK.dir/test/task.cpp.obj CMakeFiles/GMS_NETWORK.dir/src/move.cpp.obj CMakeFiles/GMS_NETWORK.dir/src/FakeBase.cpp.obj
   FLAGS = -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\GMS_NETWORK.dir
   POST_BUILD = cd .
@@ -114,7 +115,7 @@ build GMS_NETWORK.exe: CXX_EXECUTABLE_LINKER__GMS_NETWORK_Debug CMakeFiles/GMS_N
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D E:\Code\CPP\GMS_NETWORK\cmake-build-debug && "D:\Program\JetBrains\CLion 2022.2.3\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D E:\Code\CPP\GSM_NETWORK\cmake-build-debug && "D:\Program\JetBrains\CLion 2022.2.3\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -125,7 +126,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D E:\Code\CPP\GMS_NETWORK\cmake-build-debug && "D:\Program\JetBrains\CLion 2022.2.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SE:\Code\CPP\GMS_NETWORK -BE:\Code\CPP\GMS_NETWORK\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D E:\Code\CPP\GSM_NETWORK\cmake-build-debug && "D:\Program\JetBrains\CLion 2022.2.3\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SE:\Code\CPP\GSM_NETWORK -BE:\Code\CPP\GSM_NETWORK\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -143,7 +144,7 @@ build GMS_NETWORK: phony GMS_NETWORK.exe
 # =============================================================================
 
 #############################################
-# Folder: E:/Code/CPP/GMS_NETWORK/cmake-build-debug
+# Folder: E:/Code/CPP/GSM_NETWORK/cmake-build-debug
 
 build all: phony GMS_NETWORK.exe
 
@@ -154,14 +155,14 @@ build all: phony GMS_NETWORK.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake E$:/Code/CPP/GMS_NETWORK/CMakeLists.txt
+build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake E$:/Code/CPP/GSM_NETWORK/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake E$:/Code/CPP/GMS_NETWORK/CMakeLists.txt: phony
+build CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeRCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCXXInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeRCInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Compiler/GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-C.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/Windows.cmake D$:/Program/JetBrains/CLion$ 2022.2.3/bin/cmake/win/x64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake E$:/Code/CPP/GSM_NETWORK/CMakeLists.txt: phony
 
 
 #############################################

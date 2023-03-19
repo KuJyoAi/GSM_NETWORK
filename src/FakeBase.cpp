@@ -50,6 +50,7 @@ void FakeBaseManager::GoForwardAtSeg(int seg) {
     // 开始计算
     bool Connect = false; // 是否连上伪基站信号量
     vector<State> standpoint; // 记录出入的时间点, 后面二分计算边界
+
     if (ConnectFakeBases(state)){
         // 一开始就连上伪基站
         Connect = true;

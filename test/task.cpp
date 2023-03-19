@@ -205,3 +205,87 @@ void Task::PrintBaseNumber(const vector<Base *>& b) {
         cout<<i->num<<",";
     }
 }
+
+void Task::ITask1(BaseBlock *b, int x, int y) {
+    // 39行，0列：2093,2094,2140,2141,50248,
+    // 根据给出的块的坐标, 显示该坐标所在的分块的基站
+    const auto blocks = b->blocks;
+    int p = x*b->width + y;
+    //获取该坐标所在的分块
+    const auto& block = blocks[p];
+    // 打印所有基站的编号
+    Task::ShowBlockByPos(b, x, y);
+}
+
+void Task::ITask2(BaseBlock *b, int x, int y) {
+    // 所有有效的基站
+    cout<<"附近的有效基站:"<<endl;
+    const auto& bases = b->GetEffBase(x,y);
+    for (auto &i:bases){
+        ::printf("num:%d,x=%d,y=%d,xh=%lf,dist=%lf,power=%lf\n",
+                 i->num,i->x,i->y,i->power,
+                 sqrt(b->CalcR2(i,x,y)),
+                 b->CalcPower(i,x,y));
+    }
+    cout<<endl<<"------------------------------------------------"<<endl;
+    auto v1 = b->GetPowerfulBase(x,y);
+    if (v1 == nullptr){
+        ::printf("最强: (%d,%d): No base station found!\n",x,y);
+    } else{
+        // num:2378,x=100947,y=23231,xh=0.959000,dist=274,等效强度1.150
+        ::printf("信号最强: num:%d,x=%d,y=%d,xh=%lf,dist=%lf,power=%lf\n",
+                 v1->num,v1->x,v1->y,v1->power,
+                 sqrt(b->CalcR2(v1,x,y)),
+                 b->CalcPower(v1,x,y));
+    }
+
+    // 获取最近的基站
+    auto v2_ = Task::GetNearestBase(b,x,y);
+    if (v2_ == nullptr){
+        ::printf("最近: (%d,%d): No base station found!\n",x,y);
+    } else{
+        auto v2 = v2_;
+        ::printf("最近: num:%d,x=%d,y=%d,xh=%lf,dist=%lf,power=%lf\n",
+                 v2->num,v2->x,v2->y,v2->power,
+                 sqrt(b->CalcR2(v2,x,y)),
+                 b->CalcPower(v2,x,y));
+    }
+
+}
+
+void Task::ITask3(Move *m, int s) {
+    m->GoDis(m->seg[s], 1);
+}
+
+void Task::ITask4(Move *m, int s) {
+    m->FindFirstEdge(0.1, s);
+}
+
+void Task::ITask5(Move *m, int s) {
+    m->FindFirstCover(0.1, s);
+}
+
+void Task::ITask6(FakeBaseManager *f, int s) {
+    f->GoForwardAtSeg(s);
+}
+
+Base *Task::GetNearestBase(BaseBlock *data, double x, double y) {
+    // 获取最近的基站
+    auto v = data->GetEffBase(x,y);
+    if (v.empty()){
+        return nullptr;
+    }else{
+        long double min = 1e9;
+        Base *ans = nullptr;
+        for(auto &i:v){
+            long double dist = sqrt(data->CalcR2(i,x,y));
+            if (dist < min){
+                min = dist;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+
+}
+

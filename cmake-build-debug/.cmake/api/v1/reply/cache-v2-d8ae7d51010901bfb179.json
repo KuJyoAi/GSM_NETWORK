@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "e:/Code/CPP/GMS_NETWORK/cmake-build-debug"
+			"value" : "e:/Code/CPP/GSM_NETWORK/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/CPP/GMS_NETWORK/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "E:/Code/CPP/GSM_NETWORK/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "E:/Code/CPP/GMS_NETWORK"
+			"value" : "E:/Code/CPP/GSm_NETWORK"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/CPP/GMS_NETWORK/cmake-build-debug"
+			"value" : "E:/Code/CPP/GSM_NETWORK/cmake-build-debug"
 		},
 		{
 			"name" : "GMS_NETWORK_IS_TOP_LEVEL",
@@ -1287,7 +1287,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/CPP/GMS_NETWORK"
+			"value" : "E:/Code/CPP/GSM_NETWORK"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

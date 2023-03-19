@@ -2,8 +2,7 @@
 #define GMS_NETWORK_MOVE_H
 #include "vector"
 #include "BaseBlock.h"
-#define INCTime 1 //每次计算的增量时间, 单位s
-#define INCDis 1 //按距离步进, 单位m
+#define INCDis 1 //按距s离步进, 单位m
 using namespace std;
 typedef struct {
     int sx, sy, ex, ey; //开始结束坐标
@@ -21,8 +20,10 @@ public:
     void FindFirstEdge(double e, int seg); // 扩展功能1:寻找进入离开第一个基站的位置, e为误差控制
     void FindFirstCover(double e, int seg); // 扩展功能2:寻找第一个重叠区
     void FindCovers(double e); // 扩展功能2:寻找重叠区
+    void GoDis(MoveSeg s, int step);
+
 private:
-    void GoDis(MoveSeg s, int step);// 通过距离增量移动
+    // 通过距离增量移动
     long double FindCover(MoveSeg s, double e); // 输出重叠区, 并返回秒数
     pair<long double, long double> BinarySearchForCover(
             pair<long double,long double> l,
